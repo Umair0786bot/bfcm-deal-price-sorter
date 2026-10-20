@@ -1,0 +1,535 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BFCM Promo Recommendation</title>
+<meta name="description" content="BFCM 2026 US: one combined PED for S6, Silk Pillowcase and Sleephoria Cooling Fitted instead of three Lightning Deals.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232a78d6'/%3E%3Cpath d='M8 22V14M14 22V9M20 22V17M26 22V11' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<style>
+:root{
+  color-scheme:light;
+  --page:#f9f9f7; --surface:#fcfcfb; --surface-2:#f3f2ee;
+  --ink:#0b0b0b; --ink-2:#52514e; --muted:#898781;
+  --grid:#e1e0d9; --axis:#c3c2b7; --ring:rgba(11,11,11,.10);
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a; --s4:#eda100;
+  --s1-wash:rgba(42,120,214,.10); --s2-wash:rgba(235,104,52,.12);
+  --good:#006300; --bad:#d03b3b; --warn-ink:#8a5a00;
+  --hero-a:#2a78d6; --hero-b:#6250d6;
+  --shadow:0 1px 2px rgba(0,0,0,.04),0 8px 24px rgba(0,0,0,.05);
+}
+@media (prefers-color-scheme:dark){
+  :root:where(:not([data-theme="light"])){
+    color-scheme:dark;
+    --page:#0d0d0d; --surface:#1a1a19; --surface-2:#232321;
+    --ink:#f0efec; --ink-2:#c3c2b7; --muted:#898781;
+    --grid:#2c2c2a; --axis:#383835; --ring:rgba(255,255,255,.10);
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500;
+    --s1-wash:rgba(57,135,229,.16); --s2-wash:rgba(217,89,38,.18);
+    --good:#0ca30c; --bad:#e66767; --warn-ink:#fab219;
+    --hero-a:#3987e5; --hero-b:#9085e9;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --page:#0d0d0d; --surface:#1a1a19; --surface-2:#232321;
+  --ink:#f0efec; --ink-2:#c3c2b7; --muted:#898781;
+  --grid:#2c2c2a; --axis:#383835; --ring:rgba(255,255,255,.10);
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500;
+  --s1-wash:rgba(57,135,229,.16); --s2-wash:rgba(217,89,38,.18);
+  --good:#0ca30c; --bad:#e66767; --warn-ink:#fab219;
+  --hero-a:#3987e5; --hero-b:#9085e9;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--page);color:var(--ink);font:15px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1120px;margin:0 auto;padding:0 16px}
+a{color:var(--s1)}
+/* hero */
+header.hero{position:relative;overflow:hidden;padding:56px 0 40px;border-bottom:1px solid var(--grid)}
+header.hero::before{content:"";position:absolute;inset:-40% -10% auto auto;width:640px;height:640px;border-radius:50%;
+  background:radial-gradient(closest-side,color-mix(in srgb,var(--hero-a) 22%,transparent),transparent);pointer-events:none}
+header.hero::after{content:"";position:absolute;inset:auto auto -60% -10%;width:560px;height:560px;border-radius:50%;
+  background:radial-gradient(closest-side,color-mix(in srgb,var(--hero-b) 16%,transparent),transparent);pointer-events:none}
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:12px;position:relative;z-index:1}
+.eyebrow{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);font-weight:600}
+.theme-btn{border:1px solid var(--ring);background:var(--surface);color:var(--ink-2);border-radius:999px;padding:6px 12px;font:inherit;font-size:13px;cursor:pointer}
+.hero h1{position:relative;z-index:1;font-size:clamp(30px,5vw,48px);line-height:1.08;letter-spacing:-.02em;margin:18px 0 12px;max-width:820px}
+.hero h1 .grad{background:linear-gradient(90deg,var(--hero-a),var(--hero-b));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p.lede{position:relative;z-index:1;font-size:17px;color:var(--ink-2);max-width:760px;margin:0}
+.chips{position:relative;z-index:1;display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.chip{display:inline-flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--ring);border-radius:999px;padding:6px 12px;font-size:13px;color:var(--ink-2)}
+.chip b{color:var(--ink);font-weight:600}
+.dot{width:8px;height:8px;border-radius:50%;display:inline-block;flex:none}
+/* stat tiles */
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:28px 0 8px;position:relative;z-index:1}
+.tile{background:var(--surface);border:1px solid var(--ring);border-radius:16px;padding:16px 18px;box-shadow:var(--shadow)}
+.tile .lbl{font-size:13px;color:var(--ink-2)}
+.tile .val{font-size:30px;font-weight:650;letter-spacing:-.02em;margin-top:4px;line-height:1.15}
+.tile .val small{font-size:15px;font-weight:500;color:var(--muted);margin-left:4px}
+.tile .sub{font-size:13px;color:var(--muted);margin-top:4px}
+.tile .sub .up{color:var(--good);font-weight:600}
+/* sections */
+section{padding:44px 0 8px}
+.sec-head{display:flex;align-items:baseline;gap:12px;margin-bottom:6px}
+.num{font-size:12px;font-weight:700;color:var(--s1);background:var(--s1-wash);border-radius:6px;padding:2px 8px}
+h2{font-size:24px;letter-spacing:-.01em;margin:0}
+.sec-sub{color:var(--ink-2);margin:4px 0 20px;max-width:780px}
+.card{background:var(--surface);border:1px solid var(--ring);border-radius:18px;padding:20px;box-shadow:var(--shadow)}
+.card h3{margin:0 0 2px;font-size:16px}
+.card .cap{color:var(--muted);font-size:13px;margin:0 0 12px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+/* timeline */
+.timeline{position:relative;margin:4px 0 0;padding:0;list-style:none}
+.timeline li{position:relative;padding:0 0 18px 30px}
+.timeline li::before{content:"";position:absolute;left:7px;top:22px;bottom:-2px;width:2px;background:var(--grid)}
+.timeline li:last-child::before{display:none}
+.timeline .pin{position:absolute;left:0;top:4px;width:16px;height:16px;border-radius:50%;background:var(--surface);border:2px solid var(--s1)}
+.timeline li.end .pin{border-color:var(--bad);background:color-mix(in srgb,var(--bad) 18%,var(--surface))}
+.timeline .when{font-size:12px;font-weight:700;color:var(--s1);letter-spacing:.04em;text-transform:uppercase}
+.timeline li.end .when{color:var(--bad)}
+.timeline .what{font-weight:600;margin-top:2px}
+.timeline .why{color:var(--ink-2);font-size:14px}
+.status{display:flex;gap:12px;align-items:flex-start;border-radius:14px;padding:14px 16px;background:color-mix(in srgb,var(--bad) 8%,var(--surface));border:1px solid color-mix(in srgb,var(--bad) 30%,transparent)}
+.status .ic{flex:none;width:22px;height:22px;border-radius:50%;background:var(--bad);color:#fff;display:grid;place-items:center;font-weight:700;font-size:13px}
+.status p{margin:0}
+/* compare */
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.opt{border-radius:18px;padding:20px;border:1px solid var(--ring);background:var(--surface);box-shadow:var(--shadow);position:relative}
+.opt.win{border:1.5px solid var(--s1);background:linear-gradient(180deg,var(--s1-wash),var(--surface) 55%)}
+.opt .tag{position:absolute;top:16px;right:16px;font-size:12px;font-weight:700;border-radius:999px;padding:3px 10px}
+.opt.win .tag{background:var(--s1);color:#fff}
+.opt.lose .tag{background:var(--surface-2);color:var(--ink-2)}
+.opt h3{margin:0 0 4px;font-size:18px}
+.opt .price{font-size:40px;font-weight:700;letter-spacing:-.02em;margin:6px 0 2px}
+.opt .price small{font-size:14px;color:var(--muted);font-weight:500;margin-left:6px}
+.opt ul{margin:12px 0 0;padding:0;list-style:none}
+.opt li{display:flex;gap:10px;padding:7px 0;border-top:1px solid var(--grid);font-size:14px}
+.opt li:first-child{border-top:0}
+.ok,.no{flex:none;width:20px;height:20px;border-radius:50%;display:grid;place-items:center;font-size:12px;font-weight:700;margin-top:1px}
+.ok{background:color-mix(in srgb,var(--good) 16%,transparent);color:var(--good)}
+.no{background:color-mix(in srgb,var(--bad) 14%,transparent);color:var(--bad)}
+/* product */
+.prod{margin-top:16px}
+.prod-head{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;margin-bottom:14px}
+.prod-head h3{font-size:20px;margin:0}
+.badge{font-size:12px;font-weight:600;border-radius:999px;padding:3px 10px;border:1px solid var(--ring);color:var(--ink-2);background:var(--surface-2)}
+.asin{font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:16px}
+.kpi{background:var(--surface-2);border-radius:12px;padding:10px 12px}
+.kpi .l{font-size:12px;color:var(--ink-2)}
+.kpi .v{font-size:20px;font-weight:650;letter-spacing:-.01em}
+.kpi .v.neg{color:var(--bad)}
+.view{border-left:3px solid var(--s1);padding:2px 0 2px 12px;margin:14px 0 0;color:var(--ink-2)}
+.view b{color:var(--ink)}
+.stock{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.pill{display:inline-flex;align-items:center;gap:6px;font-size:13px;border-radius:10px;padding:6px 10px;background:var(--surface-2)}
+.pill b{font-variant-numeric:tabular-nums}
+.pill.oos{background:color-mix(in srgb,var(--bad) 10%,var(--surface));color:var(--bad)}
+/* charts */
+.chart{position:relative;width:100%}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12px;color:var(--ink-2);margin:0 0 8px}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{display:inline-block;width:12px;height:12px;border-radius:3px}
+.sw.line{height:2px;border-radius:1px;width:14px}
+details.data{margin-top:10px;font-size:13px}
+details.data summary{cursor:pointer;color:var(--ink-2);user-select:none}
+details.data table{border-collapse:collapse;margin-top:8px;width:100%;font-variant-numeric:tabular-nums}
+details.data th,details.data td{text-align:left;padding:4px 8px;border-bottom:1px solid var(--grid)}
+details.data th{color:var(--ink-2);font-weight:600}
+.tip{position:fixed;pointer-events:none;z-index:50;background:var(--ink);color:var(--surface);font-size:12px;line-height:1.45;border-radius:8px;padding:7px 10px;box-shadow:0 6px 20px rgba(0,0,0,.18);opacity:0;transition:opacity .08s;max-width:240px}
+.tip b{font-weight:650}
+/* final */
+.final{background:linear-gradient(135deg,color-mix(in srgb,var(--hero-a) 14%,var(--surface)),color-mix(in srgb,var(--hero-b) 12%,var(--surface)));border:1px solid var(--ring);border-radius:22px;padding:28px;box-shadow:var(--shadow)}
+.final h2{font-size:26px;margin:0 0 6px}
+.final ol{margin:16px 0 0;padding-left:20px}
+.final li{margin:6px 0}
+.note{font-size:13px;color:var(--muted);margin-top:16px}
+footer{padding:36px 0 48px;color:var(--muted);font-size:12px}
+@media (max-width:860px){
+  .tiles{grid-template-columns:repeat(2,1fr)}
+  .grid2,.grid3,.vs{grid-template-columns:1fr}
+  .kpis{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:420px){ .tile .val{font-size:24px} .opt .price{font-size:32px} }
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <div class="topbar">
+      <div class="eyebrow">BFCM 2026 · US · Promotional recommendation</div>
+      <button class="theme-btn" id="themeBtn" type="button" aria-label="Switch colour theme">◐ Theme</button>
+    </div>
+    <h1>One combined PED beats three Lightning Deals, <span class="grad">for a third of the fee.</span></h1>
+    <p class="lede">Best Deal eligibility for S6, Silk Pillowcase and Sleephoria Cooling Fitted could not be secured before the Oct 20 deadline. Of the two options left, a single Prime Exclusive Discount (PED) for Nov 19–30 covers the whole event, including Black Friday and Cyber Monday, for $100 instead of $300.</p>
+    <div class="chips">
+      <span class="chip"><span class="dot" style="background:var(--s1)"></span><b>Recommendation:</b> one PED, Nov 19–30, all three products</span>
+      <span class="chip">Prepared Oct 20, 2026</span>
+      <span class="chip">Sales data to Oct 17 · stock, fees &amp; COGS Oct 19–20</span>
+    </div>
+    <div class="tiles">
+      <div class="tile"><div class="lbl">Promotional fee</div><div class="val">$100<small>vs $300</small></div><div class="sub"><span class="up">Save $200 (66.7%)</span></div></div>
+      <div class="tile"><div class="lbl">Promo coverage</div><div class="val">12 days<small>vs 3 × 12 h</small></div><div class="sub">Full Nov 19–30 window</div></div>
+      <div class="tile"><div class="lbl">Peak days covered</div><div class="val">2 of 2<small>vs 0</small></div><div class="sub">Black Friday &amp; Cyber Monday</div></div>
+      <div class="tile"><div class="lbl">S6 inventory</div><div class="val">5,790<small>units</small></div><div class="sub">≈ 9 months of cover · 752 aged</div></div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+<section id="s1">
+  <div class="sec-head"><span class="num">01</span><h2>Best Deal eligibility: what we tried</h2></div>
+  <p class="sec-sub">We worked every channel available to get Best Deal recommendations for the three parents before the BFCM submission deadline.</p>
+  <div class="grid2">
+    <div class="card">
+      <ul class="timeline">
+        <li><span class="pin"></span><div class="when">Seller Support</div><div class="what">Eligibility review cases raised</div><div class="why">Amazon confirmed deal recommendations are system-generated and can't be manually enabled or overridden.</div></li>
+        <li><span class="pin"></span><div class="when">Oct 12</div><div class="what">Escalated to our MCF Account Manager</div><div class="why">Flagged the Oct 20 deadline and asked for Deals team support.</div></li>
+        <li><span class="pin"></span><div class="when">Oct 13</div><div class="what">Shared all three parent ASINs</div><div class="why">Requested an eligibility review or a contact on the right team.</div></li>
+        <li><span class="pin"></span><div class="when">Oct 14</div><div class="what">No direct Deals/SAS contact</div><div class="why">Account Manager checking internally for someone who could help.</div></li>
+        <li><span class="pin"></span><div class="when">Oct 16 – 20</div><div class="what">Repeated follow-ups across channels</div><div class="why">Account Manager, Seller Support and live support agents. Same answer every time.</div></li>
+        <li class="end"><span class="pin"></span><div class="when">Oct 20 · deadline</div><div class="what">Not eligible</div><div class="why">No route to Best Deal eligibility before submission closes.</div></li>
+      </ul>
+    </div>
+    <div class="card" style="display:flex;flex-direction:column;gap:14px">
+      <div class="status"><span class="ic" aria-hidden="true">!</span><p><b>Status, Oct 20:</b> Best Deal eligibility is unresolved. Rather than lose BFCM coverage, we should go with the strongest option still open.</p></div>
+      <h3 style="margin-top:4px">Products in scope</h3>
+      <div class="stock">
+        <span class="pill"><span class="dot" style="background:var(--s1)"></span>S6 · Satin Sheets 6 pc <span class="asin">B0HDTF4MN2</span></span>
+        <span class="pill"><span class="dot" style="background:var(--s3)"></span>Silk Pillowcase <span class="asin">B0GR6GBJYC</span></span>
+        <span class="pill"><span class="dot" style="background:var(--s4)"></span>Sleephoria Cooling Fitted <span class="asin">B0DQQQWYPT</span></span>
+      </div>
+      <p class="cap" style="margin:0">Options available today: three separate Lightning Deals, or one combined PED for the full event.</p>
+    </div>
+  </div>
+</section>
+
+<section id="s2">
+  <div class="sec-head"><span class="num">02</span><h2>Lightning Deals vs one PED</h2></div>
+  <p class="sec-sub">The Lightning Deal slots fall on ordinary days. Last year's same weekdays show where the sales actually came from.</p>
+  <div class="vs">
+    <div class="opt lose">
+      <span class="tag">Offered</span>
+      <h3>Three Lightning Deals</h3>
+      <div class="price">$300<small>$100 × 3</small></div>
+      <ul>
+        <li><span class="no">✕</span><span>S6 Nov 23 · Silk Pillowcase Nov 23 · Cooling Fitted Nov 25</span></li>
+        <li><span class="no">✕</span><span>12 hours each, 36 promo hours in total</span></li>
+        <li><span class="no">✕</span><span>None on Black Friday or Cyber Monday</span></li>
+        <li><span class="no">✕</span><span>About a 4-hour gap moving back to PED after an LD</span></li>
+      </ul>
+    </div>
+    <div class="opt win">
+      <span class="tag">Recommended</span>
+      <h3>One combined PED</h3>
+      <div class="price">$100<small>once, all three parents</small></div>
+      <ul>
+        <li><span class="ok">✓</span><span>Nov 19–30, the full 12-day BFCM window</span></li>
+        <li><span class="ok">✓</span><span>Covers Black Friday and Cyber Monday</span></li>
+        <li><span class="ok">✓</span><span>Discount set SKU by SKU on stock and margin</span></li>
+        <li><span class="ok">✓</span><span>No LD-to-PED transition gap</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:16px">
+    <h3>Where the BFCM sales are: last year's day shape on this year's calendar</h3>
+    <p class="cap">Daily units vs an average normal event day, BFCM 2025 (S4 + B4 + B6, Data Hub), aligned by weekday to Nov 19–30, 2026.</p>
+    <div class="legend">
+      <span><i class="sw" style="background:var(--s1)"></i>Sales index (1.0 = normal event day)</span>
+      <span><i class="sw line" style="background:var(--s1)"></i>PED coverage</span>
+      <span><i class="dot" style="background:var(--s2);width:10px;height:10px"></i>Lightning Deal slot</span>
+    </div>
+    <div class="chart" id="calChart"></div>
+    <details class="data"><summary>View data</summary><div id="calTable"></div></details>
+  </div>
+</section>
+
+<section id="s3">
+  <div class="sec-head"><span class="num">03</span><h2>Product by product</h2></div>
+  <p class="sec-sub">Margins are contribution per unit <b>before advertising</b>: price after refunds, less referral, FBA and landed COGS (Data Hub).</p>
+
+  <!-- S6 -->
+  <div class="card prod">
+    <div class="prod-head"><span class="dot" style="background:var(--s1);width:12px;height:12px"></span><h3>S6 · Satin Sheets 6 pc</h3><span class="badge">Priority: inventory reduction &amp; rank recovery</span></div>
+    <div class="kpis">
+      <div class="kpi"><div class="l">Sales now (Oct 1–17)</div><div class="v">26.6/day</div></div>
+      <div class="kpi"><div class="l">FBA inventory</div><div class="v">5,790</div></div>
+      <div class="kpi"><div class="l">Months of cover</div><div class="v">≈ 9</div></div>
+      <div class="kpi"><div class="l">Aged units · Nov 15 charge</div><div class="v">752 · $702</div></div>
+    </div>
+    <div class="grid2">
+      <div>
+        <h3 style="font-size:14px">Daily units, Jul 24 – Oct 17</h3>
+        <p class="cap">With the July Best Deal, coupons and SMPC, S6 sold 99.5/day, 3.7× today, on normal non-event days.</p>
+        <div class="legend">
+          <span><i class="sw line" style="background:var(--s1)"></i>Units per day</span>
+          <span><i class="sw" style="background:var(--s1-wash);border:1px solid var(--s1)"></i>Best Deal + coupons/SMPC</span>
+          <span><i class="dot" style="background:var(--s2);width:10px;height:10px"></i>Lightning Deal day</span>
+        </div>
+        <div class="chart" id="s6Line"></div>
+        <details class="data"><summary>View data</summary><div id="s6LineTable"></div></details>
+      </div>
+      <div>
+        <h3 style="font-size:14px">Estimated units, Nov 19–30</h3>
+        <p class="cap">Planning estimates. Ranges show low to high case. Last BFCM: 1,028 units in 12 days at ~5% off.</p>
+        <div class="legend">
+          <span><i class="sw" style="background:var(--s1)"></i>Low case</span>
+          <span><i class="sw" style="background:var(--s1);opacity:.35"></i>Range to high case</span>
+        </div>
+        <div class="chart" id="s6Scen"></div>
+        <details class="data"><summary>View data</summary><div id="s6ScenTable"></div></details>
+        <div class="stock">
+          <span class="pill">Queen Black <b>447</b> units</span>
+          <span class="pill">King Black <b>741</b> units</span>
+          <span class="pill oos">Red King · #3 seller · out of stock</span>
+        </div>
+      </div>
+    </div>
+    <p class="view"><b>View:</b> S6 needs promo support to clear excess stock, recover sales and rank. Margin is thin, so discounts should be applied by SKU on inventory exposure and contribution, not broadly.</p>
+  </div>
+
+  <!-- SPC + SLCF -->
+  <div class="grid2" style="margin-top:16px">
+    <div class="card prod" style="margin-top:0">
+      <div class="prod-head"><span class="dot" style="background:var(--s3);width:12px;height:12px"></span><h3>Silk Pillowcase</h3><span class="badge">Priority: inventory movement</span></div>
+      <div class="kpis" style="grid-template-columns:repeat(2,1fr)">
+        <div class="kpi"><div class="l">Sales (Sep)</div><div class="v">5.7/day</div></div>
+        <div class="kpi"><div class="l">FBA inventory</div><div class="v">2,895</div></div>
+        <div class="kpi"><div class="l">Months of cover</div><div class="v">≈ 17</div></div>
+        <div class="kpi"><div class="l">Contribution, full price</div><div class="v">$15.24</div></div>
+      </div>
+      <p class="cap" style="margin:0">Last BFCM: no promo, 104 units in 12 days, about half its September rate. Break-even ACoS ≈ 31%.</p>
+      <p class="view"><b>View:</b> big stock exposure but room to discount. Standard White still makes $5.85 at 20% off and $2.20 at 30%.</p>
+    </div>
+    <div class="card prod" style="margin-top:0">
+      <div class="prod-head"><span class="dot" style="background:var(--s4);width:12px;height:12px"></span><h3>Sleephoria Cooling Fitted</h3><span class="badge">Priority: profitable BFCM growth</span></div>
+      <div class="kpis" style="grid-template-columns:repeat(2,1fr)">
+        <div class="kpi"><div class="l">Sales (Sep)</div><div class="v">27.5/day</div></div>
+        <div class="kpi"><div class="l">Inventory incl. inbound</div><div class="v">4,037</div></div>
+        <div class="kpi"><div class="l">Months of cover</div><div class="v">≈ 5</div></div>
+        <div class="kpi"><div class="l">Contribution, full price</div><div class="v">$10.90</div></div>
+      </div>
+      <p class="cap" style="margin:0">49 of 65 SKUs in stock. Break-even ACoS ≈ 28%.</p>
+      <p class="view"><b>View:</b> strongest of the three. King White still makes $4.73 at 20% off, so a full-window PED keeps margin healthy.</p>
+    </div>
+  </div>
+
+  <div class="grid2" style="margin-top:16px">
+    <div class="card">
+      <h3>Months of inventory cover</h3>
+      <p class="cap">FBA inventory ÷ September sales. Longer bar = more stock to move.</p>
+      <div class="chart" id="coverChart"></div>
+      <details class="data"><summary>View data</summary><div id="coverTable"></div></details>
+    </div>
+    <div class="card">
+      <h3>Contribution per unit by discount depth</h3>
+      <p class="cap">Top sellers, before advertising. Below the zero line the unit loses money.</p>
+      <div class="legend" id="mLegend"></div>
+      <div class="chart" id="marginChart"></div>
+      <details class="data"><summary>View data</summary><div id="marginTable"></div></details>
+    </div>
+  </div>
+</section>
+
+<section id="s4">
+  <div class="final">
+    <div class="eyebrow">Final recommendation</div>
+    <h2>Run one combined PED for all three products, Nov 19–30</h2>
+    <p style="margin:0;color:var(--ink-2)">In place of the three Lightning Deals currently offered.</p>
+    <ol>
+      <li><b>Lower fee:</b> $100 instead of $300, saving $200 (66.7%).</li>
+      <li><b>Full coverage:</b> all 12 BFCM days including Black Friday and Cyber Monday, not three 12-hour slots.</li>
+      <li><b>No gap:</b> avoids the ~4-hour transition from LD back to PED.</li>
+      <li><b>SKU-level control:</b> discount depth set per SKU to balance conversion, margin and stock reduction.</li>
+      <li><b>Right job per product:</b> move S6 and Silk Pillowcase inventory, grow Cooling Fitted profitably.</li>
+    </ol>
+    <p class="note">Unit estimates are based on past promo performance and are not guaranteed, especially given the different promo mechanics. Fees and eligibility are subject to confirmation in Seller Central.</p>
+  </div>
+</section>
+
+</main>
+<footer class="wrap">
+  Sources: Command Center Data Hub (sales &amp; traffic to Oct 17, 2026; FBA inventory and fee preview Oct 19–20; landed COGS from the inventory planner; aged-inventory projection, Oct 14 snapshot). BFCM 2025 day shape uses S4, B4 and B6 daily units, Nov 20 – Dec 1, 2025. Fees as quoted: $100 per Lightning Deal, $100 per PED upload.
+</footer>
+
+<div class="tip" id="tip" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+  // ---------- theme ----------
+  const root=document.documentElement, btn=document.getElementById('themeBtn');
+  try{ const t=localStorage.getItem('promo-theme'); if(t) root.setAttribute('data-theme',t); }catch(e){}
+  btn.addEventListener('click',()=>{
+    const cur=root.getAttribute('data-theme') || (matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
+    const next=cur==='dark'?'light':'dark'; root.setAttribute('data-theme',next);
+    try{ localStorage.setItem('promo-theme',next); }catch(e){}
+  });
+
+  // ---------- helpers ----------
+  const NS='http://www.w3.org/2000/svg';
+  const tip=document.getElementById('tip');
+  function el(tag,attrs,parent){ const n=document.createElementNS(NS,tag); for(const k in attrs) n.setAttribute(k,attrs[k]); if(parent) parent.appendChild(n); return n; }
+  function txt(parent,x,y,s,attrs){ const t=el('text',Object.assign({x,y,'font-size':12,fill:'var(--muted)'},attrs||{}),parent); t.textContent=s; return t; }
+  function showTip(html,ev){ tip.innerHTML=html; tip.style.opacity=1; moveTip(ev); }
+  function moveTip(ev){ const pad=14; let x=ev.clientX+pad, y=ev.clientY+pad; const r=tip.getBoundingClientRect(); if(x+r.width>innerWidth-8) x=ev.clientX-r.width-pad; if(y+r.height>innerHeight-8) y=ev.clientY-r.height-pad; tip.style.left=x+'px'; tip.style.top=y+'px'; }
+  function hideTip(){ tip.style.opacity=0; }
+  function table(id,head,rows){ const d=document.getElementById(id); let h='<table><thead><tr>'+head.map(x=>'<th>'+x+'</th>').join('')+'</tr></thead><tbody>'; rows.forEach(r=>h+='<tr>'+r.map(x=>'<td>'+x+'</td>').join('')+'</tr>'); d.innerHTML=h+'</tbody></table>'; }
+  function barPath(x,y,w,h,r){ // rounded top, square base
+    r=Math.min(r,w/2,h); return `M${x},${y+h}V${y+r}Q${x},${y} ${x+r},${y}H${x+w-r}Q${x+w},${y} ${x+w},${y+r}V${y+h}Z`; }
+  function hbarPath(x,y,w,h,r){ r=Math.min(r,h/2,w); return `M${x},${y}H${x+w-r}Q${x+w},${y} ${x+w},${y+r}V${y+h-r}Q${x+w},${y+h} ${x+w-r},${y+h}H${x}Z`; }
+  const fmt=n=>n.toLocaleString('en-US');
+
+  // ---------- 1. calendar day-shape chart ----------
+  const cal=[
+    ['Thu','Nov 19',967],['Fri','Nov 20',818],['Sat','Nov 21',791],['Sun','Nov 22',833],['Mon','Nov 23',688],['Tue','Nov 24',811],
+    ['Wed','Nov 25',795],['Thu','Nov 26',863],['Fri','Nov 27',2260],['Sat','Nov 28',1233],['Sun','Nov 29',1320],['Mon','Nov 30',2298]];
+  const base=cal.slice(0,8).reduce((a,d)=>a+d[2],0)/8;
+  const ld={ 'Nov 23':'S6 + Silk Pillowcase LD (12 h)', 'Nov 25':'Cooling Fitted LD (12 h)' };
+  const peak={ 'Nov 27':'Black Friday', 'Nov 30':'Cyber Monday' };
+  function drawCal(){
+    const host=document.getElementById('calChart'); host.innerHTML='';
+    const W=Math.max(300,host.clientWidth), H=300, m={l:36,r:12,t:44,b:58}, narrow=W<560;
+    const svg=el('svg',{viewBox:`0 0 ${W} ${H}`,role:'img','aria-label':'BFCM day shape with PED coverage and Lightning Deal slots'},host);
+    const iw=W-m.l-m.r, ih=H-m.t-m.b, ymax=3;
+    const y=v=>m.t+ih-(v/ymax)*ih;
+    [0,1,2,3].forEach(v=>{ el('line',{x1:m.l,x2:W-m.r,y1:y(v),y2:y(v),stroke:v===0?'var(--axis)':'var(--grid)','stroke-width':1},svg); txt(svg,m.l-8,y(v)+4,v+'×',{'text-anchor':'end'}); });
+    const band=iw/cal.length, bw=Math.min(24,band*0.55);
+    // PED bracket
+    const px1=m.l+band*0.15, px2=m.l+iw-band*0.15, py=18;
+    el('path',{d:`M${px1},${py+8}V${py}H${px2}V${py+8}`,fill:'none',stroke:'var(--s1)','stroke-width':2,'stroke-linecap':'round'},svg);
+    txt(svg,(px1+px2)/2,py-6,narrow?'PED · Nov 19–30 · $100':'PED · Nov 19–30 · $100 · all 12 days',{'text-anchor':'middle',fill:'var(--ink)','font-weight':600});
+    cal.forEach((d,i)=>{
+      const v=d[2]/base, cx=m.l+band*i+band/2, x=cx-bw/2, top=y(v);
+      const g=el('g',{},svg);
+      el('rect',{x:m.l+band*i,y:m.t,width:band,height:ih,fill:'transparent'},g);
+      el('path',{d:barPath(x,top,bw,y(0)-top,4),fill:'var(--s1)'},g);
+      if(peak[d[1]]){ txt(svg,cx,top-8,v.toFixed(2)+'×',{'text-anchor':'middle',fill:'var(--ink)','font-weight':600,'font-size':narrow?11:12}); }
+      txt(svg,cx,H-m.b+16,narrow?d[0][0]:d[0],{'text-anchor':'middle','font-size':narrow?11:12});
+      txt(svg,cx,H-m.b+30,d[1].replace('Nov ',''),{'text-anchor':'middle',fill:'var(--ink-2)','font-size':narrow?11:12});
+      if(ld[d[1]]){ el('circle',{cx,cy:H-m.b+44,r:5,fill:'var(--s2)',stroke:'var(--surface)','stroke-width':2},svg); }
+      const html=`<b>${d[0]} ${d[1]}, 2026</b><br>Same weekday last year: ${fmt(d[2])} units<br>${v.toFixed(2)}× a normal event day${peak[d[1]]?'<br><b>'+peak[d[1]]+'</b>':''}${ld[d[1]]?'<br>LD slot: '+ld[d[1]]:''}`;
+      g.addEventListener('mousemove',e=>showTip(html,e)); g.addEventListener('mouseleave',hideTip);
+    });
+    // peak labels under axis area (names)
+    cal.forEach((d,i)=>{ if(peak[d[1]]){ const cx=m.l+band*i+band/2; const v=d[2]/base; txt(svg,narrow&&i===cal.length-1?cx+4:cx,y(v)-22,narrow?(d[1]==='Nov 27'?'BF':'CM'):peak[d[1]],{'text-anchor':narrow&&i===cal.length-1?'end':'middle',fill:'var(--ink-2)','font-size':11}); }});
+  }
+  table('calTable',['2026 date','Same weekday 2025 units','Index vs normal day','Note'],cal.map(d=>[d[0]+' '+d[1],fmt(d[2]),(d[2]/base).toFixed(2)+'×',(peak[d[1]]||'')+(ld[d[1]]?(peak[d[1]]?' · ':'')+'LD: '+ld[d[1]]:'')]));
+
+  // ---------- 2. S6 daily line ----------
+  const s6u=[73,80,116,96,93,75,112,106,112,132,78,46,43,51,205,65,52,68,64,48,42,36,37,44,37,43,37,23,30,30,38,52,46,32,26,27,18,27,27,35,39,16,36,16,18,32,23,22,18,14,26,24,30,21,15,24,13,17,14,14,18,16,23,17,18,29,17,22,22,24,25,23,26,29,36,32,30,19,29,25,16,26,33,26,21,32];
+  const start=new Date(Date.UTC(2026,6,24));
+  const s6d=s6u.map((u,i)=>{ const d=new Date(start.getTime()+i*864e5); return {d,u,lab:d.toLocaleDateString('en-US',{month:'short',day:'numeric',timeZone:'UTC'})}; });
+  const s6ld={ 'Aug 7':'Lightning Deal', 'Aug 11':'Lightning Deal' };
+  function drawLine(){
+    const host=document.getElementById('s6Line'); host.innerHTML='';
+    const W=Math.max(300,host.clientWidth), H=250, m={l:36,r:56,t:26,b:28};
+    const svg=el('svg',{viewBox:`0 0 ${W} ${H}`,role:'img','aria-label':'S6 daily units July to October'},host);
+    const iw=W-m.l-m.r, ih=H-m.t-m.b, ymax=220, n=s6d.length;
+    const x=i=>m.l+(i/(n-1))*iw, y=v=>m.t+ih-(v/ymax)*ih;
+    [0,50,100,150,200].forEach(v=>{ el('line',{x1:m.l,x2:W-m.r,y1:y(v),y2:y(v),stroke:v===0?'var(--axis)':'var(--grid)'},svg); txt(svg,m.l-8,y(v)+4,v,{'text-anchor':'end'}); });
+    // promo band Jul 24 - Aug 2 (idx 0..9)
+    el('rect',{x:x(0),y:m.t,width:x(9)-x(0),height:ih,fill:'var(--s1-wash)'},svg);
+    txt(svg,x(0),m.t-10,'July promo: 99.5/day',{fill:'var(--ink)','font-weight':600,'font-size':11});
+    // months
+    ['Aug 1','Sep 1','Oct 1'].forEach(lbl=>{ const i=s6d.findIndex(p=>p.lab===lbl); txt(svg,x(i),H-8,lbl.split(' ')[0],{'text-anchor':'middle'}); });
+    let dA=`M${x(0)},${y(0)}`, dL='';
+    s6d.forEach((p,i)=>{ dA+=`L${x(i)},${y(p.u)}`; dL+=(i?'L':'M')+x(i)+','+y(p.u); });
+    dA+=`L${x(n-1)},${y(0)}Z`;
+    el('path',{d:dA,fill:'var(--s1)','fill-opacity':.10},svg);
+    el('path',{d:dL,fill:'none',stroke:'var(--s1)','stroke-width':2,'stroke-linejoin':'round','stroke-linecap':'round'},svg);
+    s6d.forEach((p,i)=>{ if(s6ld[p.lab]) el('circle',{cx:x(i),cy:y(p.u),r:4.5,fill:'var(--s2)',stroke:'var(--surface)','stroke-width':2},svg); });
+    // end label
+    const last=s6d[n-1]; el('circle',{cx:x(n-1),cy:y(last.u),r:4,fill:'var(--s1)',stroke:'var(--surface)','stroke-width':2},svg);
+    txt(svg,x(n-1)+8,y(last.u)+4,'26.6/day',{fill:'var(--ink)','font-weight':600,'font-size':11});
+    // crosshair
+    const ch=el('line',{y1:m.t,y2:m.t+ih,stroke:'var(--axis)','stroke-width':1,opacity:0},svg);
+    const cd=el('circle',{r:4.5,fill:'var(--s1)',stroke:'var(--surface)','stroke-width':2,opacity:0},svg);
+    const hit=el('rect',{x:m.l,y:m.t,width:iw,height:ih,fill:'transparent'},svg);
+    hit.addEventListener('mousemove',e=>{ const r=svg.getBoundingClientRect(); const px=(e.clientX-r.left)*(W/r.width); let i=Math.round((px-m.l)/iw*(n-1)); i=Math.max(0,Math.min(n-1,i)); const p=s6d[i];
+      ch.setAttribute('x1',x(i)); ch.setAttribute('x2',x(i)); ch.setAttribute('opacity',1); cd.setAttribute('cx',x(i)); cd.setAttribute('cy',y(p.u)); cd.setAttribute('opacity',1);
+      showTip(`<b>${p.lab}, 2026</b><br>${p.u} units${i<=9?'<br>Best Deal + coupons/SMPC':''}${s6ld[p.lab]?'<br>'+s6ld[p.lab]:''}`,e); });
+    hit.addEventListener('mouseleave',()=>{ ch.setAttribute('opacity',0); cd.setAttribute('opacity',0); hideTip(); });
+  }
+  table('s6LineTable',['Date','Units'],s6d.map(p=>[p.lab+(s6ld[p.lab]?' (LD)':''),p.u]));
+
+  // ---------- 3. S6 scenarios ----------
+  const scen=[['No promotion',320,320],['Lightning Deal only',350,500],['Full-window PED',920,1200]];
+  function drawScen(){
+    const host=document.getElementById('s6Scen'); host.innerHTML='';
+    const W=Math.max(300,host.clientWidth), H=170, m={l:132,r:84,t:8,b:24};
+    const svg=el('svg',{viewBox:`0 0 ${W} ${H}`,role:'img','aria-label':'S6 estimated units by option'},host);
+    const iw=W-m.l-m.r, xmax=1300, x=v=>m.l+(v/xmax)*iw, rowH=(H-m.t-m.b)/scen.length, bh=Math.min(24,rowH*.55);
+    (W<520?[0,600,1200]:[0,400,800,1200]).forEach(v=>{ el('line',{x1:x(v),x2:x(v),y1:m.t,y2:H-m.b,stroke:v===0?'var(--axis)':'var(--grid)'},svg); txt(svg,x(v),H-6,v?fmt(v):'0',{'text-anchor':'middle'}); });
+    scen.forEach((s,i)=>{ const cy=m.t+rowH*i+rowH/2, yy=cy-bh/2, g=el('g',{},svg);
+      el('rect',{x:0,y:m.t+rowH*i,width:W,height:rowH,fill:'transparent'},g);
+      txt(g,m.l-10,cy+4,s[0],{'text-anchor':'end',fill:'var(--ink-2)','font-size':13});
+      if(s[2]>s[1]){ el('path',{d:hbarPath(x(0),yy,x(s[2])-x(0),bh,4),fill:'var(--s1)','fill-opacity':.35},g); el('rect',{x:x(0),y:yy,width:x(s[1])-x(0)-2,height:bh,fill:'var(--s1)'},g); }
+      else el('path',{d:hbarPath(x(0),yy,x(s[1])-x(0),bh,4),fill:'var(--s1)'},g);
+      txt(g,x(s[2])+8,cy+4,s[2]>s[1]?fmt(s[1])+'–'+fmt(s[2]):'~'+fmt(s[1]),{fill:'var(--ink)','font-weight':600,'font-size':13});
+      g.addEventListener('mousemove',e=>showTip(`<b>${s[0]}</b><br>${s[2]>s[1]?fmt(s[1])+' – '+fmt(s[2]):'~'+fmt(s[1])} units, Nov 19–30`,e)); g.addEventListener('mouseleave',hideTip);
+    });
+  }
+  table('s6ScenTable',['Option','Low','High'],scen.map(s=>[s[0],fmt(s[1]),fmt(s[2])]));
+
+  // ---------- 4. cover ----------
+  const cover=[['Silk Pillowcase',2895,170,'var(--s3)'],['S6',5790,644,'var(--s1)'],['Cooling Fitted',4037,825,'var(--s4)']];
+  function drawCover(){
+    const host=document.getElementById('coverChart'); host.innerHTML='';
+    const W=Math.max(300,host.clientWidth), H=170, m={l:112,r:64,t:8,b:24};
+    const svg=el('svg',{viewBox:`0 0 ${W} ${H}`,role:'img','aria-label':'Months of inventory cover by product'},host);
+    const iw=W-m.l-m.r, xmax=18, x=v=>m.l+(v/xmax)*iw, rowH=(H-m.t-m.b)/cover.length, bh=Math.min(24,rowH*.55);
+    [0,6,12,18].forEach(v=>{ el('line',{x1:x(v),x2:x(v),y1:m.t,y2:H-m.b,stroke:v===0?'var(--axis)':'var(--grid)'},svg); txt(svg,x(v),H-6,v+' mo',{'text-anchor':'middle'}); });
+    cover.forEach((c,i)=>{ const mo=c[1]/c[2], cy=m.t+rowH*i+rowH/2, g=el('g',{},svg);
+      el('rect',{x:0,y:m.t+rowH*i,width:W,height:rowH,fill:'transparent'},g);
+      txt(g,m.l-10,cy+4,c[0],{'text-anchor':'end',fill:'var(--ink-2)','font-size':13});
+      el('path',{d:hbarPath(x(0),cy-bh/2,x(mo)-x(0),bh,4),fill:c[3]},g);
+      txt(g,x(mo)+8,cy+4,mo.toFixed(1)+' mo',{fill:'var(--ink)','font-weight':600,'font-size':13});
+      g.addEventListener('mousemove',e=>showTip(`<b>${c[0]}</b><br>${fmt(c[1])} units ÷ ${fmt(c[2])} sold in Sep<br>≈ ${mo.toFixed(1)} months of cover`,e)); g.addEventListener('mouseleave',hideTip);
+    });
+  }
+  table('coverTable',['Product','Inventory','Sep units','Months of cover'],cover.map(c=>[c[0],fmt(c[1]),fmt(c[2]),(c[1]/c[2]).toFixed(1)]));
+
+  // ---------- 5. margin by discount ----------
+  const disc=[0,15,20,25,30];
+  const ms=[
+    {n:'Silk · Standard White',c:'var(--s3)',v:[13.14,7.67,5.85,4.03,2.20]},
+    {n:'Cooling Fitted · King White',c:'var(--s4)',v:[11.22,6.35,4.73,3.10,1.48]},
+    {n:'S6 · King Black',c:'var(--s2)',v:[4.87,0.77,-0.60,-1.97,-3.33]},
+    {n:'S6 · Queen Black',c:'var(--s1)',v:[3.06,-0.56,-1.77,-2.97,-4.18]}];
+  document.getElementById('mLegend').innerHTML=ms.map(s=>`<span><i class="sw line" style="background:${s.c}"></i>${s.n}</span>`).join('');
+  function drawMargin(){
+    const host=document.getElementById('marginChart'); host.innerHTML='';
+    const W=Math.max(300,host.clientWidth), H=250, m={l:40,r:16,t:12,b:28};
+    const svg=el('svg',{viewBox:`0 0 ${W} ${H}`,role:'img','aria-label':'Contribution per unit by discount'},host);
+    const iw=W-m.l-m.r, ih=H-m.t-m.b, ymin=-5, ymax=15;
+    const x=i=>m.l+(i/(disc.length-1))*iw, y=v=>m.t+ih-((v-ymin)/(ymax-ymin))*ih;
+    [-5,0,5,10,15].forEach(v=>{ el('line',{x1:m.l,x2:W-m.r,y1:y(v),y2:y(v),stroke:v===0?'var(--ink-2)':'var(--grid)','stroke-width':v===0?1.2:1},svg); txt(svg,m.l-8,y(v)+4,(v<0?'−$':'$')+Math.abs(v),{'text-anchor':'end'}); });
+    el('rect',{x:m.l,y:y(0),width:iw,height:y(ymin)-y(0),fill:'var(--bad)','fill-opacity':.06},svg);
+    txt(svg,W-m.r-4,y(0)+14,'loses money',{'text-anchor':'end',fill:'var(--bad)','font-size':11});
+    disc.forEach((d,i)=>txt(svg,x(i),H-8,d?d+'% off':'Full price',{'text-anchor':'middle'}));
+    ms.forEach(s=>{ let d=''; s.v.forEach((v,i)=>d+=(i?'L':'M')+x(i)+','+y(v)); el('path',{d,fill:'none',stroke:s.c,'stroke-width':2,'stroke-linejoin':'round','stroke-linecap':'round'},svg);
+      s.v.forEach((v,i)=>el('circle',{cx:x(i),cy:y(v),r:4,fill:s.c,stroke:'var(--surface)','stroke-width':2},svg)); });
+    // 20% guide
+    const ch=el('line',{y1:m.t,y2:m.t+ih,stroke:'var(--axis)',opacity:0},svg);
+    const hit=el('rect',{x:m.l-10,y:m.t,width:iw+20,height:ih,fill:'transparent'},svg);
+    hit.addEventListener('mousemove',e=>{ const r=svg.getBoundingClientRect(); const px=(e.clientX-r.left)*(W/r.width); let i=Math.round((px-m.l)/iw*(disc.length-1)); i=Math.max(0,Math.min(disc.length-1,i));
+      ch.setAttribute('x1',x(i)); ch.setAttribute('x2',x(i)); ch.setAttribute('opacity',1);
+      showTip(`<b>${disc[i]?disc[i]+'% off':'Full price'}</b><br>`+ms.map(s=>`${s.n}: ${s.v[i]<0?'−$'+Math.abs(s.v[i]).toFixed(2):'$'+s.v[i].toFixed(2)}`).join('<br>'),e); });
+    hit.addEventListener('mouseleave',()=>{ ch.setAttribute('opacity',0); hideTip(); });
+  }
+  table('marginTable',['SKU'].concat(disc.map(d=>d?d+'% off':'Full price')),ms.map(s=>[s.n].concat(s.v.map(v=>(v<0?'−$':'$')+Math.abs(v).toFixed(2)))));
+
+  function drawAll(){ drawCal(); drawLine(); drawScen(); drawCover(); drawMargin(); }
+  drawAll();
+  let t; addEventListener('resize',()=>{ clearTimeout(t); t=setTimeout(drawAll,120); });
+})();
+</script>
+</body>
+</html>
